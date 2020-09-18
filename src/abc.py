@@ -10,8 +10,6 @@ import random
 
 from src.util import fitness, get_labels
 
-
-
 def new_bee(centroids, fit):
     new_fitness = 1 / (1 + fit)
     return {"centroids": centroids,
@@ -47,7 +45,7 @@ def update_bee(bee, k, dimensions, data, metric):
     return bee
 
 
-def abc(data, num_bees=30, num_of_clusters=3, max_iterations=50, metric='ecludian', discard_limit=20):
+def abc(data, num_bees=30, num_of_clusters=3, max_iterations=50, metric='euclidean', discard_limit=20):
     dimensions = data.shape[1]
 
     all_bees = generate_population(data, num_bees, num_of_clusters, metric)
@@ -106,7 +104,7 @@ def abc(data, num_bees=30, num_of_clusters=3, max_iterations=50, metric='ecludia
 # TODO add comments and docstrings
 class ABCClustering(BaseEstimator, ClusterMixin):
 
-    def __init__(self, num_bees=30, num_of_clusters=3, max_iterations=50, metric='ecludian', discard_limit=20):
+    def __init__(self, num_bees=30, num_of_clusters=3, max_iterations=50, metric='euclidean', discard_limit=20):
         self.num_bees = num_bees
         self.num_of_clusters = num_of_clusters
         self.max_iterations = max_iterations
@@ -116,11 +114,11 @@ class ABCClustering(BaseEstimator, ClusterMixin):
     def fit(self, X):
         if not isinstance(X, np.ndarray):
             X = X.to_numpy()
-        best_frog = abc(X,
+        best_bee = abc(X,
                         num_bees=self.num_bees,
                         num_of_clusters=self.num_of_clusters,
                         max_iterations=self.max_iterations,
                         metric=self.metric,
                         discard_limit=self.discard_limit)
-        self.labels_ = get_labels(X, best_frog)
+        self.labels_ = get_labels(X, best_bee)
         return self
