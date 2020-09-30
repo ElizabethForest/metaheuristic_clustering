@@ -1,6 +1,8 @@
 import numpy as np
 
+
 def get_euclidean_distance(row, centroids):
+    """ Calculates the euclidean distance between a row and each centroid """
     return [np.linalg.norm(row - centroid) for centroid in centroids]
 
 
