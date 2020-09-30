@@ -11,7 +11,6 @@ import random
 from src.util import fitness, get_labels
 
 
-
 def new_bee(centroids, fit):
     new_fitness = 1 / (1 + fit)
     return {"centroids": centroids,
@@ -47,7 +46,17 @@ def update_bee(bee, k, dimensions, data, metric):
     return bee
 
 
-def abc(data, num_bees=30, num_of_clusters=3, max_iterations=50, metric='ecludian', discard_limit=20):
+def abc(data, num_bees=30, num_of_clusters=3, max_iterations=50, metric='euclidean', discard_limit=20):
+    """
+    :param data: the data to be clustered
+    :param num_bees: the number of bees  - this is the number of potential solutions to be considered at one time
+    :param num_of_clusters: the number of clusters (k)
+    :param max_iterations: the max number of iterations
+    :param metric: can only be Euclidean distance atm
+    :param discard_limit: the max number of times for a bee to not improve before being re-created
+    :return: The best solution after the max number of iterations
+    """
+
     dimensions = data.shape[1]
 
     all_bees = generate_population(data, num_bees, num_of_clusters, metric)
@@ -77,7 +86,7 @@ def abc(data, num_bees=30, num_of_clusters=3, max_iterations=50, metric='ecludia
 
         for onlooker in all_bees:
             sorted_bees = sorted(all_bees, key=lambda x: x["prob"])
-            choice = random.randint(0, (num_bees//2))
+            choice = random.randint(0, (num_bees // 2))
             # Todo: should randomly choose a bee thats > threshold
             random_bee = sorted_bees[choice]
 
@@ -105,8 +114,24 @@ def abc(data, num_bees=30, num_of_clusters=3, max_iterations=50, metric='ecludia
 
 # TODO add comments and docstrings
 class ABCClustering(BaseEstimator, ClusterMixin):
+    """
+    Creates clusters based on the Artificial Bee Colony optimisation algorithm
 
-    def __init__(self, num_bees=30, num_of_clusters=3, max_iterations=50, metric='ecludian', discard_limit=20):
+    Karaboga and C. Ozturk, "A novel clustering approach: Artificial Bee Colony (ABC) algorithm," Applied soft computing
+
+    Also based on an implementation by: https://github.com/ntocampos/artificial-bee-colony
+
+    """
+
+    def __init__(self, num_bees=30, num_of_clusters=3, max_iterations=50, metric='euclidean', discard_limit=20):
+        """
+        :param num_bees: the number of bees  - this is the number of potential solutions to be considered at one time
+        :param num_of_clusters: the number of clusters to be created (k)
+        :param max_iterations: the max number of iterations
+        :param metric: can only be Euclidean distance atm
+        :param discard_limit: the max number of times for a bee to not improve before being re-created
+
+        """
         self.num_bees = num_bees
         self.num_of_clusters = num_of_clusters
         self.max_iterations = max_iterations
@@ -114,13 +139,17 @@ class ABCClustering(BaseEstimator, ClusterMixin):
         self.discard_limit = discard_limit
 
     def fit(self, X):
+        """
+        :param X: the data to be clustered
+        :return: the updated object
+        """
         if not isinstance(X, np.ndarray):
             X = X.to_numpy()
-        best_frog = abc(X,
-                        num_bees=self.num_bees,
-                        num_of_clusters=self.num_of_clusters,
-                        max_iterations=self.max_iterations,
-                        metric=self.metric,
-                        discard_limit=self.discard_limit)
-        self.labels_ = get_labels(X, best_frog)
+        best_bee = abc(X,
+                       num_bees=self.num_bees,
+                       num_of_clusters=self.num_of_clusters,
+                       max_iterations=self.max_iterations,
+                       metric=self.metric,
+                       discard_limit=self.discard_limit)
+        self.labels_ = get_labels(X, best_bee)
         return self
