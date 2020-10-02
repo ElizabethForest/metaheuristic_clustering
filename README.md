@@ -51,3 +51,11 @@ import src.abc as abc
 best_bee = abc.abc(data)
 abc_labels = util.get_labels(data, best_bee)
 ```
+
+### Sample Results
+
+#### ABC
+![Graphs of ABC Results](ABC_results.png)
+
+#### SFLA
+![Graphs of SLFA Results](SFLA_results.png)
