@@ -8,7 +8,7 @@ Currently the algorithms implemented are:
 - Artifical Bee Colony (ABC)
     - Karaboga and C. Ozturk, "A novel clustering approach: Artificial Bee Colony (ABC) algorithm," Applied soft computing
 - Shuffled Frog Leaping Algorithm (SFLA)
-    - M. Fathian, B. Amiri, and A. Maroosi, "Application of honey-bee mating optimization algorithm on clustering," Applied Mathematics and Computation, vol. 190, no. 2, pp. 1502-1513, 2007 2007
+    - Amiri, B., Fathian, M., & Maroosi, A. (2009). Application of shuffled frog-leaping algorithm on clustering. The International Journal of Advanced Manufacturing Technology, 45(1), 199-209.
     
 ## Dependencies
 [Numpy](https://numpy.org/)
