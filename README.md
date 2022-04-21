@@ -1,6 +1,6 @@
 # Metaheuristic Clustering
 
-As the name suggests this is a repository for metaheuristic clustering algorithms, implemented in Python 3, that I could not find implemented elsewhere.
+As the name suggests, this is a repository for metaheuristic clustering algorithms, implemented in Python 3, that I could not find implemented elsewhere.
 
 Implementations are designed to work with or without the sklearn implementation style.
 
