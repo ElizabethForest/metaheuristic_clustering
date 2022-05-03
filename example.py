@@ -67,13 +67,13 @@ def show_results(model):
     plt.show()
 
 
-from src.abc import ABCClustering
+from src.metaheuristic_clustering.abc import ABCClustering
 
 abc_model = ABCClustering()
 show_results(abc_model)
 
 
-from src.sfla import SFLAClustering
+from src.metaheuristic_clustering.sfla import SFLAClustering
 
 sfla_model = SFLAClustering()
 show_results(sfla_model)

@@ -32,7 +32,7 @@ varied = datasets.make_blobs(n_samples=n_samples,
 test_datasets = [noisy_circles, noisy_moons, blobs, no_structure, varied, aniso]
 
 
-from src.abc import ABCClustering
+from src.metaheuristic_clustering.abc import ABCClustering
 
 plt.figure(figsize=(9 * 2 + 3, 12.5))
 plt.subplots_adjust(left=.02, right=.98, bottom=.001, top=.96, wspace=.05,

@@ -1,5 +1,7 @@
 # Metaheuristic Clustering
 
+[![version status](https://img.shields.io/pypi/v/metaheuristic_clustering.svg?style=flat)](https://pypi.org/project/metaheuristic-clustering)
+
 As the name suggests, this is a repository for metaheuristic clustering algorithms, implemented in Python 3, that I could not find implemented elsewhere.
 
 Implementations are designed to work with or without the sklearn implementation style.
@@ -22,15 +24,17 @@ Currently the algorithms implemented are:
 ### Sklearn/Object style
 
 ```python
-data = X # your data
+data = X  # your data
 
 # SFLA Clustering
-from src.sfla import SFLAClustering
+from metaheuristic_clustering.sfla import SFLAClustering
+
 sfla_model = SFLAClustering()
 sfla_labels = sfla_model.fit_predict(data)
 
 # ABC Clustering
-from src.abc import ABCClustering
+from metaheuristic_clustering.abc import ABCClustering
+
 abc_model = ABCClustering()
 abc_labels = abc_model.fit_predict(data)
 ```
@@ -38,16 +42,19 @@ abc_labels = abc_model.fit_predict(data)
 ### Function style
 
 ```python
-import src.util as util
-data = X # your data
+import metaheuristic_clustering.util as util
+
+data = X  # your data
 
 # SFLA Clustering
-import src.sfla as sfla
-best_frog =  sfla.sfla(data)
+import metaheuristic_clustering.sfla as sfla
+
+best_frog = sfla.sfla(data)
 sfla_labels = util.get_labels(data, best_frog)
 
 # ABC Clustering
-import src.abc as abc
+import metaheuristic_clustering.abc as abc
+
 best_bee = abc.abc(data)
 abc_labels = util.get_labels(data, best_bee)
 ```
@@ -55,7 +62,7 @@ abc_labels = util.get_labels(data, best_bee)
 ### Sample Results
 
 #### ABC
-![Graphs of ABC Results](ABC_results.png)
+![Graphs of ABC Results](https://github.com/ElizabethForest/metaheuristic_clustering/blob/master/ABC_results.png)
 
 #### SFLA
-![Graphs of SLFA Results](SFLA_results.png)
+![Graphs of SLFA Results](https://github.com/ElizabethForest/metaheuristic_clustering/blob/master/SFLA_results.png)

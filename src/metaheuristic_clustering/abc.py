@@ -2,13 +2,12 @@
 # Karaboga and C. Ozturk, "A novel clustering approach: Artificial Bee Colony (ABC) algorithm," Applied soft computing
 # https://github.com/ntocampos/artificial-bee-colony
 
-from pyclustering.cluster.center_initializer import kmeans_plusplus_initializer as k_init
 from pyclustering.cluster.center_initializer import random_center_initializer as rand_init
 from sklearn.base import ClusterMixin, BaseEstimator
 import numpy as np
 import random
 
-from src.util import fitness, get_labels
+from .util import fitness, get_labels
 
 
 def new_bee(centroids, fit):

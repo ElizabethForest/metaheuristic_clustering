@@ -9,7 +9,7 @@
 import numpy as np
 import itertools
 from pyclustering.cluster.center_initializer import random_center_initializer as rand_init
-from src.util import fitness, get_labels
+from .util import fitness, get_labels
 
 from sklearn.base import ClusterMixin, BaseEstimator
 
