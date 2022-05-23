@@ -8,9 +8,21 @@ Implementations are designed to work with or without the sklearn implementation 
 
 Currently the algorithms implemented are:
 - Artifical Bee Colony (ABC)
-    - Karaboga and C. Ozturk, "A novel clustering approach: Artificial Bee Colony (ABC) algorithm," Applied soft computing
+    - D. Karaboga and C. Ozturk (2011). "A novel clustering approach: Artificial Bee Colony (ABC) algorithm", Applied soft computing, 11(1), 652–657, 2011.
 - Shuffled Frog Leaping Algorithm (SFLA)
-    - Amiri, B., Fathian, M., & Maroosi, A. (2009). Application of shuffled frog-leaping algorithm on clustering. The International Journal of Advanced Manufacturing Technology, 45(1), 199-209.
+    - B. Amiri, M. Fathian, and A. Maroosi (2009). "Application of shuffled frog-leaping algorithm on clustering", The International Journal of Advanced Manufacturing Technology, 45(1-2), 199-209.
+
+
+## Installation
+
+metaheristic_clustering can be installed with:
+
+```bash
+pip install metaheuristic-clustering
+```
+
+Or you can [fork this repository](https://github.com/ElizabethForest/metaheuristic_clustering/fork)
+
     
 ## Dependencies
 [Numpy](https://numpy.org/)
@@ -19,7 +31,19 @@ Currently the algorithms implemented are:
 
 [scikit-learn](https://scikit-learn.org/stable/) - only needed for interop with scikit-learn
 
+
+## Contributing Guidelines
+
+Please create a [pull request](https://github.com/ElizabethForest/metaheuristic_clustering/pulls) or an [issue](https://github.com/ElizabethForest/metaheuristic_clustering/issues) if you would like to contribute or have any bug reports, issues, or suggestions.
+
+
 ## Example
+
+There is example code using the metaheuristic-clusteing library available:
+- [python file](https://github.com/ElizabethForest/metaheuristic_clustering/blob/master/example.py)
+- [jupyter notebook](https://github.com/ElizabethForest/metaheuristic_clustering/blob/master/example.ipynb)
+
+Or for a breif overview see below:
 
 ### Sklearn/Object style
 
@@ -66,3 +90,5 @@ abc_labels = util.get_labels(data, best_bee)
 
 #### SFLA
 ![Graphs of SLFA Results](https://github.com/ElizabethForest/metaheuristic_clustering/blob/master/SFLA_results.png)
+
+
